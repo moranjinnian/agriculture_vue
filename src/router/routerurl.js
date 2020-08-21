@@ -1,7 +1,8 @@
 import Layout from '../views/layout/index'
 
 export function getrouter() {
-    let url = [{
+    let url = [
+        {
         path: '/home',
         component: Layout,
         redirect: 'home',
@@ -11,31 +12,53 @@ export function getrouter() {
             name: 'home',
             meta: {title: 'home', icon: 'form', noCache: true}
         }]
-    },
-        {
+       },
+       {
             path: '/login',
             component: () => import ('../views/login/index'), hidden: true
         },
         {
             path: '/monitor',
             component: Layout,
-            redirect: 'monitor/index',
+            redirect: 'monitor',
             children: [{
-                path: 'index',
-                component: () => import ('../views/monitor/index'), hidden: true,
+                path: '/monitor',
+                component: () => import ('../views/monitor'), hidden: true,
                 name: 'monitor',
                 meta: {title: 'monitor', icon: 'form', noCache: true}
             }]
         },
         {
-            path: '/ts',
+            path: '/dynamic',
             component: Layout,
-            redirect: 'ts/ts',
+            redirect: 'dynamic',
             children: [{
-                path: 'ts',
-                component: () => import ('../views/monitor/ts'), hidden: true,
-                name: 'ts',
-                meta: {title: 'ts', icon: 'form', noCache: true}
+                path: '/dynamic',
+                component: () => import ('../views/dynamic'), hidden: true,
+                name: 'dynamic',
+                meta: {title: 'dynamice', icon: 'form', noCache: true}
+            }]
+        },
+        {
+            path: '/introduce',
+            component: Layout,
+            redirect: 'introduce',
+            children: [{
+                path: '/introduce',
+                component: () => import ('../views/introduce'), hidden: true,
+                name: 'introduce',
+                meta: {title: 'introduce', icon: 'form', noCache: true}
+            }]
+        },
+        {
+            path: '/system',
+            component: Layout,
+            redirect: 'system',
+            children: [{
+                path: '/system',
+                component: () => import ('../views/system'), hidden: true,
+                name: 'system',
+                meta: {title: 'system', icon: 'form', noCache: true}
             }]
         },
         {

@@ -9,7 +9,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import "./router/permission"
 import "./icon/iconfont.css"
 import "./util/request"
-
+import VideoPlayer from 'vue-video-player'
+require('video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
+Vue.use(VideoPlayer)
 Vue.use(Vuex)
 Vue.prototype.$echarts = chart;
 

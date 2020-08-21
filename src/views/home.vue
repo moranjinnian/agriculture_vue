@@ -1,5 +1,21 @@
 <template>
     <div class="com-cont">
+           <div class="sg-header-dn">
+            <div class="sg-header-nav-main">
+                <div @click="tabbutton('/home','莒县智慧农业大数据中心',$event)" class="sg-header-nav">
+                    <a type="text" class="sg-button">现代农业产业园</a>
+                </div>
+                <div @click="tabbutton('/home','莒县智慧农业大数据中心',$event)" class="sg-header-nav">
+                    <a type="text" class="sg-button">产业强镇</a>
+                </div>
+                <div @click="tabbutton('/home','莒县智慧农业大数据中心',$event)" class="sg-header-nav">
+                    <a type="text" class="sg-button">明优名产村</a>
+                </div>
+                <div @click="tabbutton('/home','莒县智慧农业大数据中心',$event)" class="sg-header-nav">
+                    <a type="text" class="sg-button">县域经济社会发展</a>
+                </div>
+            </div>
+        </div>
         <div class="sg-home-content">
             <div class="sg-home-top">
                 <div class="sg-home-top-left">
@@ -42,7 +58,7 @@
                             </div>
                             <div>
                                 <div class="num-img num-img4">
-                                    <span class=" icon iconfont icon-shuju"></span>
+                                    <span class=" icon iconfont icon-weibiaoti--"></span>
                                 </div>
                                 <div>
                                     <br>
@@ -69,16 +85,16 @@
                 </div>
                 <div class="sg-home-top-right">
                     <div class="sg-home-top-right-top">
-                        <div class="nydt">
+                        <div @click="routerrs('/dynamic','莒县智慧农业动态')" class="nydt">
                             <water :water="woterData"></water>
                         </div>
                         <div @click="routerrs('/monitor','莒县智慧农业物联监控')" class="wljk">
                             <water :water="woterData1"></water>
                         </div>
-                        <div @click="routerrs('/monitor','莒县智慧农业动态')" class="yqjs">
+                        <div @click="routerrs('/introduce','莒县智慧农业园区介绍')" class="yqjs">
                             <water :water="woterData2"></water>
                         </div>
-                        <div @click="routerrs('/ts','ts')" class="zhny">
+                        <div @click="routerrs('/system','莒县智慧农业')" class="zhny">
                             <water :water="woterData3"></water>
                         </div>
                         <div class="xxgl">
@@ -140,17 +156,25 @@
     export default {
         name: "home",
         components: {column, lien, ring, water, mapChart},
+         props: {
+            menuData: {},
+        },
+        watch: {
+            menuData(e) {
+                console.log(e)
+            }
+        },
         data() {
             return {
                 activeName: 'first',
                 woterData: {
                     color: '#6cb75c',
-                    icon: 'icon iconfont icon-dongtai-miaobian',
+                    icon: 'iconfont icon-dongtai-A',
                     name: '农业动态'
                 },
                 woterData1: {
                     color: '#c46f45',
-                    icon: 'icon iconfont icon-jiankong',
+                    icon: 'iconfont icon-jiankong1',
                     name: '物联监控'
                 },
                 woterData2: {
@@ -160,12 +184,12 @@
                 },
                 woterData3: {
                     color: '#1fa0c5',
-                    icon: 'icon iconfont icon-nongyezhineng',
+                    icon: 'iconfont icon-zhihuixinnongyesvg',
                     name: '智慧农业'
                 },
                 woterData4: {
                     color: '#449ef6',
-                    icon: 'icon iconfont icon-snippets',
+                    icon: 'iconfont icon-xinxiguanli',
                     name: '信息管理'
                 },
                 itemList: [require('../assets/images/sylbtp.png'), require('../assets/images/sylbtp.png'), require('../assets/images/sylbtp.png'), require('../assets/images/sylbtp.png')]
@@ -181,6 +205,16 @@
             routerrs(e,r) {
                 this.$emit('callback',r)
                 this.$router.push(e)
+            },
+            tabbutton(url, type, e) {
+                this.$router.push(url)
+                this.menuData.title = type
+                let el = e.currentTarget;
+                let ty = document.getElementById("el-button-acti");
+                if (ty) {
+                    ty.id = "";
+                }
+                el.id = "el-button-acti";
             }
 
         },
@@ -197,11 +231,11 @@
         width: 10vh;
         background: url("../assets/images/syqyxx.png") no-repeat center;
         text-align: center;
-        line-height: 8vh;
+        line-height: 7vh;
     }
 
     .num-img > span {
-        font-size: 1.8vw;
+        font-size: 1.4vw;
         color: #e2e2e2;
     }
 
@@ -299,14 +333,14 @@
     }
 
     .sg-home-top {
-        height: 55vh;
+        height: 54vh;
         width: 100%;
         display: flex;
+        margin: 0.5vh 0;
     }
 
     .sg-home-dn {
-
-        height: 30vh;
+        height:28vh;
         width: 100%;
         display: flex;
     }
@@ -345,9 +379,16 @@
         background: url("../assets/images/sybjk.png");
         background-size: 100% 100%;
     }
-    #heatMap{ transform:rotate(-30deg);
--ms-transform:rotate(-30deg); 	/* IE 9 */
--moz-transform:rotate(-30deg); 	/* Firefox */
--webkit-transform:rotate(-30deg); /* Safari 和 Chrome */
--o-transform:rotate(-30deg); 	/* Opera */}
+    #heatMap{    
+    width: 60%;
+    height: 55vh;
+    margin: 0 auto;
+    transform-origin:center center; 
+     transform:rotate(-90deg); 
+	-ms-transform:rotate(-90deg);/*  IE 9 */
+-moz-transform:rotate(-90deg); 	 /*Firefox */
+ -webkit-transform:rotate(-90deg); /*Safari 和 Chrome */
+-o-transform:rotate(-90deg); 	/* Opera*/
+}
+
 </style>

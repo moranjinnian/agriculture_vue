@@ -3,7 +3,9 @@
   "/login",
   "/monitor",
   "/monitor/index",
+  "/dynamic",
+  "/introduce",
   "/ts/ts",
-  "/ts",
+  "/system",
   "/404"
 ]

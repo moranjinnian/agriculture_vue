@@ -31,7 +31,13 @@
                         <span>物联监控</span>
                     </div>
                     <div class="sg-main-value">
-
+                       <el-tabs :tab-position="tabPosition" style="height: 200px;">
+                            <el-tab-pane label="一号监测点">一号监测点</el-tab-pane>
+                            <el-tab-pane label="二号监测点">二号监测点</el-tab-pane>
+                            <el-tab-pane label="三号监测点">三号监测点</el-tab-pane>
+                            <el-tab-pane label="四号监测点">四号监测点</el-tab-pane>
+                            <el-tab-pane label="五号监测点">五号监测点</el-tab-pane>             
+                        </el-tabs>
                     </div>
                 </div>
             </div>
@@ -44,13 +50,17 @@
         name: "index",
         data() {
             return {
-                item: []
+                item: [],
+                tabPosition:"left"
             }
         },
         created() {
             this.item = [
                 '莒县------1', '莒县------2', '莒县------3', '莒县------4', '莒县------5', '莒县------6', '莒县------7', '莒县------8', '莒县------9', '莒县------10'
             ]
+        },
+        methods(){
+            
         }
     }
 </script>
@@ -58,15 +68,14 @@
 <style scoped>
     .sg-main-left, .sg-main-right {
         width: 45%;
-        margin: 2vh 0;
-        margin-left: 5%;
+        margin: 2vh auto;
         border-radius: 5px;
         border: 1px solid #3691b1;
     }
 
-    .sg-main-right {
-        margin-right: 5%;
-    }
+    /* .sg-main-right {
+       
+    } */
 
     .sg-main-value {
         height: calc(100% - 3.5vh);
@@ -109,7 +118,7 @@
     }
 
     .monitor-content-left-header {
-        background: url("../../assets/images/wljklftbtbj.png");
+        background: url("../assets/images/wljklftbtbj.png");
         background-size: 100% 100%;
         border-bottom: 1px dashed #03488d;
         color: #fff;

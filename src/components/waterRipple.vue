@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <div class="water-name">
-                <span style="font-size: 1.5vw" :class="water.icon"></span><br>
+                <span style="font-size: 1.4vw" :class="water.icon"></span><br>
                 <span>{{water.name}}</span>
             </div>
             <div :style="{background:water.color}" class="water water1"></div>

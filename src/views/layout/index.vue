@@ -44,4 +44,5 @@
         background: url("../../assets/images/bj.jpg");
         background-size: 100vw 100vh;
     }
+    
 </style>
